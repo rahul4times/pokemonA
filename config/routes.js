@@ -18,21 +18,12 @@ module.exports = function(app){
   // Pokemon profile
   app.get('/showpage/:id', pokemon.profile);
 
+  // Getting to edit pokemon page
+  app.get('/editpokemon/:id', pokemon.editPage);
 
 
-  // User login
-  // app.post('/login', user.login);
-  //
-  // // User registration
-  // app.post('/register', register.createUser);
-  //
-  //
-  //
-  // // After login user will be redirected to profile
-  // app.get('/profile', profile.userProfile);
-  //
-  // // logout
-  // app.get('/logout', logout.getOut);
+
+
 
 
 }

@@ -45,6 +45,19 @@ module.exports = {
         console.log(result);
         res.render('show', {onePokemon: result[0]});
       })
+  },
+  // Getting to edit pokemon page
+  editPage: function(req, res){
+    knex('pokemon')
+      .where('id', req.params.id)
+      .then((pokemon)=>{
+        knex('trainers')
+          .then((trainers)=>{
+            console.log(pokemon);
+            console.log(trainers);
+            res.render('editpokemon', {pokemon: pokemon[0], trainers: trainers});
+          })
+      })
   }
 
 

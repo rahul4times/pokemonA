@@ -42,7 +42,9 @@
             <td><%= pokemonList[i].cp %></td>
             <td><%= pokemonList[i].in_gym %></td>
             <td><%= pokemonList[i].trainer_id %></td>
-            <td><p><a href="#">Assign to Gym</a> | <a href="#">Edit </a> | <a href="#">Delete</a></p></td>
+            <td><p><a href="#">Assign to Gym</a> |
+              <a href="/editpokemon/<%= pokemonList[i].id %>">Edit </a> |
+              <a href="#">Delete</a></p></td>
           </tr>
         <% } %>
       </tbody>
