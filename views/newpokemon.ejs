@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add New Pokemon</title>
+  </head>
+  <body>
+    <h1>Add New Pokemon</h1>
+    <p><a href="/pokemon">Back</a></p>
+    <br>
+    <form action="/createpokemon" method="post">
+      <input type="text" name="name" placeholder="Name" required>
+      <br>
+      <br>
+      <input type="text" name="cp" placeholder="Combat Power" required>
+      <br>
+      <br>
+      <label for="in_gym">In Gym</label>
+      <br>
+      <input type="radio" name="in_gym" value="true"> Yes<br>
+      <input type="radio" name="in_gym" value="false" checked> No<br>
+      <br>
+      <br>
+      <label for="trainer_id">Select Trainer</label>
+      <br>
+      <select name="trainer_id" required>
+        <% for(let i=0; i<trainerList.length; i++){ %>
+          <option value="<%= trainerList[i].id %>">
+            <%= trainerList[i].name %></option>
+        <% } %>
+      </select>
+      <br>
+      <br>
+      <input type="submit" value="Create">
+    </form>
+  </body>
+</html>
