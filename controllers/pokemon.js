@@ -37,8 +37,14 @@ module.exports = {
   // one pokemon profile
   profile: function(req, res){
     knex('pokemon')
-      .where('id', req.params.id)
-      .join()
+      .select('pokemon.name as pname', 'pokemon.cp as pcp',
+              'pokemon.in_gym as pingym', 'trainers.name as tname')
+      .join('trainers', 'pokemon.trainer_id', 'trainers.id')
+      .where('pokemon.id', req.params.id)
+      .then((result)=>{
+        console.log(result);
+        res.render('show', {onePokemon: result[0]});
+      })
   }
 
 
