@@ -42,20 +42,31 @@ module.exports = {
       .join('trainers', 'pokemon.trainer_id', 'trainers.id')
       .where('pokemon.id', req.params.id)
       .then((result)=>{
-
         res.render('show', {onePokemon: result[0]});
       })
   },
   // Getting to edit pokemon page
   editPage: function(req, res){
+
     knex('pokemon')
       .where('id', req.params.id)
       .then((pokemon)=>{
+        
         knex('trainers')
           .then((trainers)=>{
-            console.log(pokemon);
-            console.log(trainers);
-            res.render('editpokemon', {pokemon: pokemon[0], trainers: trainers});
+            var otherTrainers = trainers;
+            var currentTrainer = [];
+            for(let i=0; i<otherTrainers.length; i++){
+              if(otherTrainers[i].id === pokemon[0].trainer_id){
+
+                // This displying pokemon current trainer only
+                currentTrainer.push(otherTrainers[i]);
+
+                // This removes current trainer and displying rest in drop box
+                otherTrainers.splice(i, 1);
+              }
+            }
+            res.render('editpokemon', {pokemon: pokemon[0], trainers: otherTrainers, pokemonTrainer: currentTrainer[0]});
           })
       })
   },

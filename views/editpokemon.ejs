@@ -22,27 +22,23 @@
       <% } else { %>
         <p>In Gym: No</p>
       <% } %>
-
-
+      
       <label for="in_gym">Change: </label>
       <input type="radio" name="in_gym" value="true"> Yes
       <input type="radio" name="in_gym" value="false"> No
       <br>
       <br>
-      <% var trainerName = ""; %>
-      <% for(let j=0; j<trainers.length; j++){ %>
-        <% if(trainers[j].id === pokemon.trainer_id){ %>
-          <% trainerName = trainers[j].name; %>
-        <% } %>
-      <% } %>
-      <p>Current Trainer: <%= trainerName %></p>
+
       <label for="trainer_id">Change Trainer: </label>
       <select name="trainer_id">
-      <% for(let i=0; i<trainers.length; i++){ %>
-        <option id="option" value="<%= trainers[i].id %>">
-          <%= trainers[i].name %></option>
-
-      <% } %>
+        <option selected value="<%= pokemonTrainer.id %>">
+          <%= pokemonTrainer.name %>
+        </option>
+        <% for(let k=0; k<trainers.length; k++){ %>
+            <option value="<%= trainers[k].id %>">
+              <%= trainers[k].name %>
+            </option>
+        <% } %>
       </select>
       <br>
       <br>
