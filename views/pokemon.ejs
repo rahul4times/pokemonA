@@ -21,8 +21,9 @@
   <body>
     <h1>All Pokemons</h1>
     <br>
-    <p><a href="/newpokemon">Add Pokemon</a> | 
-      <a href="/trainers">Trainers</a>
+    <p><a href="/newpokemon">Add Pokemon</a> |
+      <a href="/trainers">Trainers</a> |
+      <a href="/gym">Gym</a>
     </p>
 
     <table>
@@ -33,7 +34,9 @@
           <td>COMBAT POWER</td>
           <td>IN GYM</td>
           <td>TRAINER ID</td>
-          <td>ACTIONS</td>
+          <td>ASIGN TO GYM</td>
+          <td>EDIT</td>
+          <td>DELETE</td>
         </tr>
       </thead>
       <tbody>
@@ -45,12 +48,18 @@
             <td><%= pokemonList[i].cp %></td>
             <td><%= pokemonList[i].in_gym %></td>
             <td><%= pokemonList[i].trainer_id %></td>
-            <td><p><a href="#">Assign to Gym</a> |
-              <a href="/editpokemon/<%= pokemonList[i].id %>">Edit </a> |
-              <a href="/delete/<%= pokemonList[i].id %>">Delete</a></p></td>
+            <td><a class="atg" href="#">Assign to Gym</a>
+              <a class="rfg" href="#">Remove from gym</a></td>
+            <td><a href="/editpokemon/<%= pokemonList[i].id %>">Edit</a></td>
+            <td><a href="/delete/<%= pokemonList[i].id %>">Delete</a></td>
           </tr>
         <% } %>
       </tbody>
     </table>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="/js/pokemon.js"></script>
   </body>
 </html>
