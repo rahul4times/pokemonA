@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Edit Pokemon</title>
+    <style>
+      body{
+        font-family: arial;
+      }
+    </style>
   </head>
   <body>
     <h1>Edit <%= pokemon.name %></h1>
@@ -22,7 +27,7 @@
       <% } else { %>
         <p>In Gym: No</p>
       <% } %>
-      
+
       <label for="in_gym">Change: </label>
       <input type="radio" name="in_gym" value="true"> Yes
       <input type="radio" name="in_gym" value="false"> No

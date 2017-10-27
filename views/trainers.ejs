@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>trainers</title>
+    <style>
+      body{
+        font-family: arial;
+      }
+      table, tr, td{
+        padding: 10px;
+        border: 1px solid #000;
+        border-collapse: collapse;
+      }
+      thead{
+        background-color: #f5f5f5;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Trainers</h1>
+    <p><a href="/pokemon">Back</a></p>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>NAME</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i<trainersList.length; i++){ %>
+          <tr>
+            <td><%= trainersList[i].id %></td>
+            <td><a href="/trainershow/<%= trainersList[i].id %>">
+              <%= trainersList[i].name %></a></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>
