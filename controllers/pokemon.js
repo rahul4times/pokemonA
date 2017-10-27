@@ -42,7 +42,7 @@ module.exports = {
       .join('trainers', 'pokemon.trainer_id', 'trainers.id')
       .where('pokemon.id', req.params.id)
       .then((result)=>{
-        console.log(result);
+
         res.render('show', {onePokemon: result[0]});
       })
   },
@@ -57,6 +57,29 @@ module.exports = {
             console.log(trainers);
             res.render('editpokemon', {pokemon: pokemon[0], trainers: trainers});
           })
+      })
+  },
+  // Updating pokemon
+  edit: function(req, res){
+    knex('pokemon')
+      .where('id', req.params.id)
+        .update({
+          name: req.body.name,
+          cp: req.body.cp,
+          in_gym: req.body.in_gym,
+          trainer_id: req.body.trainer_id
+        })
+        .then(()=>{
+          res.redirect('/showpage/'+ req.params.id);
+        })
+  },
+  // Removing pokemon
+  remove: function(req, res){
+    knex('pokemon')
+      .where('id', req.params.id)
+      .del()
+      .then(()=>{
+        res.redirect('/pokemon');
       })
   }
 

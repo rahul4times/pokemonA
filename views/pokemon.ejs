@@ -44,7 +44,7 @@
             <td><%= pokemonList[i].trainer_id %></td>
             <td><p><a href="#">Assign to Gym</a> |
               <a href="/editpokemon/<%= pokemonList[i].id %>">Edit </a> |
-              <a href="#">Delete</a></p></td>
+              <a href="/delete/<%= pokemonList[i].id %>">Delete</a></p></td>
           </tr>
         <% } %>
       </tbody>

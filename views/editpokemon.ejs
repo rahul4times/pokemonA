@@ -8,6 +8,45 @@
     <h1>Edit <%= pokemon.name %></h1>
     <p><a href="/pokemon">back</a></p>
     <hr>
+    <br>
+    <form action="/editp/<%= pokemon.id %>" method="post">
+      <input type="text" name="name" value="<%= pokemon.name %>">
+      <br>
+      <br>
+      <input type="text" name="cp" value="<%= pokemon.cp %>">
+      <br>
+      <br>
 
+      <% if(pokemon.in_gym){ %>
+        <p>In Gym: Yes</p>
+      <% } else { %>
+        <p>In Gym: No</p>
+      <% } %>
+
+
+      <label for="in_gym">Change: </label>
+      <input type="radio" name="in_gym" value="true"> Yes
+      <input type="radio" name="in_gym" value="false"> No
+      <br>
+      <br>
+      <% var trainerName = ""; %>
+      <% for(let j=0; j<trainers.length; j++){ %>
+        <% if(trainers[j].id === pokemon.trainer_id){ %>
+          <% trainerName = trainers[j].name; %>
+        <% } %>
+      <% } %>
+      <p>Current Trainer: <%= trainerName %></p>
+      <label for="trainer_id">Change Trainer: </label>
+      <select name="trainer_id">
+      <% for(let i=0; i<trainers.length; i++){ %>
+        <option id="option" value="<%= trainers[i].id %>">
+          <%= trainers[i].name %></option>
+
+      <% } %>
+      </select>
+      <br>
+      <br>
+      <input type="submit" value="Edit">
+    </form>
   </body>
 </html>

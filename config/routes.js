@@ -21,9 +21,11 @@ module.exports = function(app){
   // Getting to edit pokemon page
   app.get('/editpokemon/:id', pokemon.editPage);
 
+  // Edit pokemon
+  app.post('/editp/:id', pokemon.edit);
 
-
-
+  // Delete pokemon
+  app.get('/delete/:id', pokemon.remove);
 
 
 }
