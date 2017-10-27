@@ -1,6 +1,7 @@
 
 const pokemon = require("../controllers/pokemon.js");
-const trainers = require("../controllers/trainers.js")
+const trainers = require("../controllers/trainers.js");
+const gym = require("../controllers/gym.js");
 
 module.exports = function(app){
 
@@ -34,7 +35,11 @@ module.exports = function(app){
   // Displaying trainers profile
   app.get('/trainershow/:id', trainers.oneTrainer);
 
+  // Adding to gym
+  app.get('/addtogym/:id', pokemon.addToGym);
 
+  // Removing from gym
+  app.get('/removefromgym/:id', pokemon.removeFromGym);
 
 
 }

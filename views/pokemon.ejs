@@ -26,6 +26,8 @@
       <a href="/gym">Gym</a>
     </p>
 
+    <br>
+    <br>
     <table>
       <thead>
         <tr>
@@ -34,7 +36,7 @@
           <td>COMBAT POWER</td>
           <td>IN GYM</td>
           <td>TRAINER ID</td>
-          <td>ASIGN TO GYM</td>
+          <td>ACTION</td>
           <td>EDIT</td>
           <td>DELETE</td>
         </tr>
@@ -48,8 +50,29 @@
             <td><%= pokemonList[i].cp %></td>
             <td><%= pokemonList[i].in_gym %></td>
             <td><%= pokemonList[i].trainer_id %></td>
-            <td><a class="atg" href="#">Assign to Gym</a>
-              <a class="rfg" href="#">Remove from gym</a></td>
+
+
+            <% if(!pokemonList[i].in_gym && gym.length < 2){ %>
+
+              <td><a class="atg" href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
+
+              
+
+
+            <% } else {%>
+
+            <td><a class="rfg" href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
+
+            <% } %>
+
+
+
+
+
+
+
+
+
             <td><a href="/editpokemon/<%= pokemonList[i].id %>">Edit</a></td>
             <td><a href="/delete/<%= pokemonList[i].id %>">Delete</a></td>
           </tr>
