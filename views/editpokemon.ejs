@@ -21,19 +21,8 @@
       <input type="text" name="cp" value="<%= pokemon.cp %>">
       <br>
       <br>
-
-      <% if(pokemon.in_gym){ %>
-        <p>In Gym: Yes</p>
-      <% } else { %>
-        <p>In Gym: No</p>
-      <% } %>
-
-      <label for="in_gym">Change: </label>
-      <input type="radio" name="in_gym" value="true"> Yes
-      <input type="radio" name="in_gym" value="false"> No
+        <p>In Gym: <%= pokemon.in_gym %></p>
       <br>
-      <br>
-
       <label for="trainer_id">Change Trainer: </label>
       <select name="trainer_id">
         <option selected value="<%= pokemonTrainer.id %>">

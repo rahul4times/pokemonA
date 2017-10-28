@@ -31,7 +31,7 @@ module.exports = {
       .insert({
         name: req.body.name,
         cp: req.body.cp,
-        in_gym: req.body.in_gym,
+        in_gym: 'false',
         trainer_id: req.body.trainer_id
       })
       .then(()=>{
@@ -81,11 +81,9 @@ module.exports = {
         .update({
           name: req.body.name,
           cp: req.body.cp,
-          in_gym: req.body.in_gym,
           trainer_id: req.body.trainer_id
         })
         .then(()=>{
-          req.session.gym.push(req.params.id);
           res.redirect('/showpage/'+ req.params.id);
         })
   },

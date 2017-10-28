@@ -20,14 +20,7 @@
       <input type="text" name="cp" placeholder="Combat Power" required>
       <br>
       <br>
-      <label for="in_gym">In Gym</label>
-      <br>
-      <input type="radio" name="in_gym" value="true"> Yes<br>
-      <input type="radio" name="in_gym" value="false" checked> No<br>
-      <br>
-      <br>
-      <label for="trainer_id">Select Trainer</label>
-      <br>
+      <label for="trainer_id">Select Trainer: </label>
       <select name="trainer_id" required>
         <% for(let i=0; i<trainerList.length; i++){ %>
           <option value="<%= trainerList[i].id %>">

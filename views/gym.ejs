@@ -8,20 +8,85 @@
     <h1>Gym</h1>
     <p><a href="/pokemon">Back</a></p>
     <br>
-    <h3>Player 1: <%= players[0] %></h3>
-    <form action="/selectplayer1" method="post">
-      <select name="trainer_id">
-        
-        <option selected value=""></option>
-      <% for(let i=0; i<allPlayer.length; i++){ %>
-        <option value="<%= allPlayer[i].id %>">
-          <%= allPlayer[i].name %></option>
+
+    <% if(players.length < 2){ %>
+
+      <h2>Pokemon 1</h2>
+        <% for(let j=0; j<firstPlayer.length; j++){ %>
+          <% if(parseInt(players[0]) === firstPlayer[j].id){ %>
+            <h3><%= firstPlayer[j].name; %></h3>
+          <% } %>
+        <% } %>
+      <form action="/selectplayerone" method="post">
+        <select name="id">
+        <% for(let i=0; i<firstPlayer.length; i++){ %>
+          <option value="<%= firstPlayer[i].id %>">
+            <%= firstPlayer[i].name %></option>
+        <% } %>
+        </select>
+        <input type="submit" value="Select Player 1">
+      </form>
+      <br>
+      <br>
+      <h2>Pokemon 2</h2>
+      <% for(let k=0; k<secondPlayer.length; k++){ %>
+        <% if(parseInt(players[1]) === secondPlayer[k].id){ %>
+          <h3><%= secondPlayer[k].name; %></h3>
+        <% } %>
       <% } %>
-      </select>
-    </form>
+      <form action="/selectplayertwo" method="post">
+        <select name="id">
+        <% for(let j=0; j<secondPlayer.length; j++){ %>
+          <option value="<%= secondPlayer[j].id %>">
+            <%= secondPlayer[j].name %></option>
+        <% } %>
+        </select>
+        <input type="submit" value="Select Player 2">
+      </form>
 
-    <h3>Player 2: <%= players[1] %></h3>
+    <% } else { %>
 
+      <h2>Pokemon 1</h2>
+        <% for(let j=0; j<firstPlayer.length; j++){ %>
+          <% if(parseInt(players[0]) === firstPlayer[j].id){ %>
+            <h3><%= firstPlayer[j].name; %></h3>
+          <% } %>
+        <% } %>
+      <form action="/selectplayerone" method="post">
+        <select name="id">
+        <% for(let i=0; i<firstPlayer.length; i++){ %>
+          <option value="<%= firstPlayer[i].id %>">
+            <%= firstPlayer[i].name %></option>
+        <% } %>
+        </select>
+        <input disabled type="submit" value="Select Player 1">
+      </form>
+      <br>
+      <br>
+      <h2>Pokemon 2</h2>
+      <% for(let k=0; k<secondPlayer.length; k++){ %>
+        <% if(parseInt(players[1]) === secondPlayer[k].id){ %>
+          <h3><%= secondPlayer[k].name; %></h3>
+        <% } %>
+      <% } %>
+      <form action="/selectplayertwo" method="post">
+        <select name="id">
+        <% for(let j=0; j<secondPlayer.length; j++){ %>
+          <option value="<%= secondPlayer[j].id %>">
+            <%= secondPlayer[j].name %></option>
+        <% } %>
+        </select>
+        <input disabled type="submit" value="Select Player 2">
+      </form>
+    <% } %>
 
+    <br>
+    <% if(parseInt(players[0]) === parseInt(players[1])){ %>
+      <p>A Pokemón cannot fight itself! Click on reset and choose a different Pokemón!</p>
+    <% } else if(players.length > 1){%>
+      <p><a href="#">Battle</a></p>
+    <% } %>
+    <p><a href="/resetgym">Reset</a></p>
+    <h3>Winner: </h3>
   </body>
 </html>

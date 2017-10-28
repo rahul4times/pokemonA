@@ -44,5 +44,15 @@ module.exports = function(app){
   // Getting to gym page
   app.get('/gym', gym.pageDisplay);
 
+  // Selecting 1st player
+  app.post('/selectplayerone', gym.playerOne);
 
+  // Selecting 2nd player
+  app.post('/selectplayertwo', gym.playerTwo);
+
+  // Reseting Gym
+  app.get('/resetgym', gym.resetGym);
+
+  // Battle
+  app.get('/battle', gym.battle);
 }
