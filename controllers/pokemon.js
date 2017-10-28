@@ -107,12 +107,22 @@ module.exports = {
       .then(()=>{
         req.session.gym.push(req.params.id);
         res.redirect('/pokemon');
-        console.log(req.session.gym);
+        //console.log(req.session.gym);
       })
 
   },
   // Removes from gym
   removeFromGym: function(req, res){
+    var gym = req.session.gym;
+    console.log(gym.length);
+    for(let i=0; i<gym.length; i++){
+      if(gym[i] === req.params.id){
+        gym.splice(i, 1);
+        //delete req.session.gym[i];
+      }
+    }
+    //req.session.gym.splice(i, 1);
+
     knex('pokemon')
       .where('id', req.params.id)
       .update({
@@ -120,7 +130,9 @@ module.exports = {
       })
       .then(()=>{
         console.log(req.session.gym);
-        res.redirect('/pokemon');
+        req.session.save(() => {
+          res.redirect('/pokemon');
+        })
       })
 
   }

@@ -56,15 +56,14 @@
 
               <td><a class="atg" href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
 
-              
+            <% } else if (!pokemonList[i].in_gym){ %>
 
+              <td><% [i] %>Gym occupied</td>
 
-            <% } else {%>
-
-            <td><a class="rfg" href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
+            <% } else { %>
+              <td><a class="rfg" href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
 
             <% } %>
-
 
 
 
