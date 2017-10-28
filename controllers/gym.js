@@ -2,9 +2,13 @@ const knex = require('../db/knex.js');
 module.exports = {
   // Gym page dislpay
   pageDisplay: function(req, res){
+
+    // Setting up session for gym
     if(!req.session.gym){
       req.session.gym = [];
     }
+
+    // Setting up session for winner
     if(!req.session.winner){
       req.session.winner = [];
     }
@@ -16,6 +20,7 @@ module.exports = {
       })
 
   },
+
   // Selecting 1st player
   playerOne: function(req, res){
     knex('pokemon')
@@ -31,6 +36,7 @@ module.exports = {
 
       })
   },
+
   // Selecting 2nd player
   playerTwo: function(req, res){
     knex('pokemon')
@@ -46,6 +52,7 @@ module.exports = {
 
       })
   },
+
   // Reseting gym
   resetGym: function(req, res){
     delete req.session.gym;
@@ -61,6 +68,7 @@ module.exports = {
         })
       })
   },
+
   //Battle
   battle: function(req, res){
     var player_one = req.params.fpid;
@@ -71,20 +79,26 @@ module.exports = {
     knex('pokemon')
       .then((result)=>{
 
+        // Pokemon table assigned to var pokemonTable
         var pokemonTable = result;
 
+        // Checking if pokemon 1 id matches in pokemon table
+        // If matches then push in var firstPlayerInfo
         for(let i=0; i<pokemonTable.length; i++){
           if(pokemonTable[i].id === parseInt(player_one)){
             firstPlayerInfo.push(pokemonTable[i]);
           }
         }
 
+        // Checking if pokemon 2 id matches in pokemon table
+        // If matches then push in var secondPlayerInfo
         for(let j=0; j<pokemonTable.length; j++){
           if(pokemonTable[j].id = player_two){
             secondPlayerInfo.push(pokemonTable[j])
           }
         }
 
+        // Checking who won and pushing in session.winner
         if(firstPlayerInfo[0].cp > secondPlayerInfo[0].cp){
           req.session.winner.push(firstPlayerInfo[0].name);
         } else{
@@ -94,16 +108,7 @@ module.exports = {
         req.session.save(()=>{
           res.redirect('/gym');
         })
-
       })
-
-
-
-
   }
-
-
-
-
 
 }

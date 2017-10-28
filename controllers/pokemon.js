@@ -5,18 +5,20 @@ module.exports = {
 
     res.redirect('/pokemon')
   },
+
   // displaying all pokemon
   allPokemon: function(req, res){
     if(!req.session.gym){
       req.session.gym = [];
     }
-    //var msg = req.session.msg;
+
     knex('pokemon')
     .orderBy('id')
       .then((result)=>{
         res.render('pokemon', {pokemonList: result, gym: req.session.gym});
       })
   },
+
   // create pokemon page
   newPokemonPage: function(req, res){
     knex('trainers')
@@ -25,6 +27,7 @@ module.exports = {
       })
 
   },
+
   // adding new pokemon
   createOne: function(req, res){
     knex('pokemon')
@@ -38,6 +41,7 @@ module.exports = {
         res.redirect('/pokemon');
       })
   },
+
   // one pokemon profile
   profile: function(req, res){
     knex('pokemon')
@@ -49,13 +53,13 @@ module.exports = {
         res.render('show', {onePokemon: result[0]});
       })
   },
+
   // Getting to edit pokemon page
   editPage: function(req, res){
 
     knex('pokemon')
       .where('id', req.params.id)
       .then((pokemon)=>{
-
         knex('trainers')
           .then((trainers)=>{
             var otherTrainers = trainers;
@@ -74,6 +78,7 @@ module.exports = {
           })
       })
   },
+
   // Updating pokemon
   edit: function(req, res){
     knex('pokemon')
@@ -87,6 +92,7 @@ module.exports = {
           res.redirect('/showpage/'+ req.params.id);
         })
   },
+
   // Removing pokemon
   remove: function(req, res){
     knex('pokemon')
@@ -96,6 +102,7 @@ module.exports = {
         res.redirect('/pokemon');
       })
   },
+
   // Assign to gym
   addToGym: function(req, res){
     knex('pokemon')
@@ -109,6 +116,7 @@ module.exports = {
       })
 
   },
+
   // Removes from gym
   removeFromGym: function(req, res){
     var gym = req.session.gym;
@@ -130,11 +138,5 @@ module.exports = {
       })
 
   }
-
-
-
-
-
-
 
 }

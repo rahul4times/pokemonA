@@ -8,6 +8,7 @@ module.exports = {
           res.render('trainers', {trainersList: result});
         })
   },
+  
   // This displaying one trainer with its pokemon
   oneTrainer: function(req, res){
     knex('trainers')
