@@ -10,7 +10,7 @@ module.exports = {
     if(!req.session.gym){
       req.session.gym = [];
     }
-    var msg = req.session.msg;
+    //var msg = req.session.msg;
     knex('pokemon')
     .orderBy('id')
       .then((result)=>{
@@ -97,7 +97,7 @@ module.exports = {
         res.redirect('/pokemon');
       })
   },
-  // Adds to gym
+  // Assign to gym
   addToGym: function(req, res){
     knex('pokemon')
       .where('id', req.params.id)
@@ -118,10 +118,8 @@ module.exports = {
     for(let i=0; i<gym.length; i++){
       if(gym[i] === req.params.id){
         gym.splice(i, 1);
-        //delete req.session.gym[i];
       }
     }
-    //req.session.gym.splice(i, 1);
 
     knex('pokemon')
       .where('id', req.params.id)

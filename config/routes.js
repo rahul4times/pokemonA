@@ -41,5 +41,8 @@ module.exports = function(app){
   // Removing from gym
   app.get('/removefromgym/:id', pokemon.removeFromGym);
 
+  // Getting to gym page
+  app.get('/gym', gym.pageDisplay);
+
 
 }

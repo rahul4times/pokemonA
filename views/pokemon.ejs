@@ -25,7 +25,6 @@
       <a href="/trainers">Trainers</a> |
       <a href="/gym">Gym</a>
     </p>
-
     <br>
     <br>
     <table>
@@ -50,38 +49,18 @@
             <td><%= pokemonList[i].cp %></td>
             <td><%= pokemonList[i].in_gym %></td>
             <td><%= pokemonList[i].trainer_id %></td>
-
-
             <% if(!pokemonList[i].in_gym && gym.length < 2){ %>
-
-              <td><a class="atg" href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
-
+              <td><a href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
             <% } else if (!pokemonList[i].in_gym){ %>
-
               <td><% [i] %>Gym occupied</td>
-
             <% } else { %>
-              <td><a class="rfg" href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
-
+              <td><a href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
             <% } %>
-
-
-
-
-
-
-
-
             <td><a href="/editpokemon/<%= pokemonList[i].id %>">Edit</a></td>
             <td><a href="/delete/<%= pokemonList[i].id %>">Delete</a></td>
           </tr>
         <% } %>
       </tbody>
     </table>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="/js/pokemon.js"></script>
   </body>
 </html>
