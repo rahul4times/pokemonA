@@ -84,9 +84,13 @@
     <% if(parseInt(players[0]) === parseInt(players[1])){ %>
       <p>A Pokemón cannot fight itself! Click on reset and choose a different Pokemón!</p>
     <% } else if(players.length > 1){%>
-      <p><a href="#">Battle</a></p>
+      <p><a href="/battle/<%= players[0] %>/<%=players[1]%>">Battle</a></p>
     <% } %>
     <p><a href="/resetgym">Reset</a></p>
-    <h3>Winner: </h3>
+
+
+
+
+    <h3>Winner: <%= winner[0] %></h3>
   </body>
 </html>

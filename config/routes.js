@@ -54,5 +54,5 @@ module.exports = function(app){
   app.get('/resetgym', gym.resetGym);
 
   // Battle
-  app.get('/battle', gym.battle);
+  app.get('/battle/:fpid/:spid', gym.battle);
 }
