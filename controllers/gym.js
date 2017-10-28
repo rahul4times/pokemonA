@@ -5,7 +5,13 @@ module.exports = {
     if(!req.session.gym){
       req.session.gym = [];
     }
-    res.render('gym', {players: req.session.gym});
+
+    knex('pokemon')
+      .then((result)=>{
+        res.render('gym', {allPlayer: result, players: req.session.gym});
+      })
+
+
   }
   //
 }

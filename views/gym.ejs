@@ -9,6 +9,19 @@
     <p><a href="/pokemon">Back</a></p>
     <br>
     <h3>Player 1: <%= players[0] %></h3>
+    <form action="/selectplayer1" method="post">
+      <select name="trainer_id">
+        
+        <option selected value=""></option>
+      <% for(let i=0; i<allPlayer.length; i++){ %>
+        <option value="<%= allPlayer[i].id %>">
+          <%= allPlayer[i].name %></option>
+      <% } %>
+      </select>
+    </form>
+
     <h3>Player 2: <%= players[1] %></h3>
+
+
   </body>
 </html>

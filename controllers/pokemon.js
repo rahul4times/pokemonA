@@ -85,6 +85,7 @@ module.exports = {
           trainer_id: req.body.trainer_id
         })
         .then(()=>{
+          req.session.gym.push(req.params.id);
           res.redirect('/showpage/'+ req.params.id);
         })
   },
@@ -107,27 +108,24 @@ module.exports = {
       .then(()=>{
         req.session.gym.push(req.params.id);
         res.redirect('/pokemon');
-        //console.log(req.session.gym);
       })
 
   },
   // Removes from gym
   removeFromGym: function(req, res){
     var gym = req.session.gym;
-    console.log(gym.length);
     for(let i=0; i<gym.length; i++){
       if(gym[i] === req.params.id){
         gym.splice(i, 1);
       }
     }
-
+    // now updates gym status in table
     knex('pokemon')
       .where('id', req.params.id)
       .update({
         in_gym: 'false'
       })
       .then(()=>{
-        console.log(req.session.gym);
         req.session.save(() => {
           res.redirect('/pokemon');
         })
