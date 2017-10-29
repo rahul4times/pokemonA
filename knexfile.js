@@ -1,11 +1,11 @@
 module.exports = {
   development: {
       client: 'pg',
-      connection: 'postgres://localhost/pokemon-node',
-      // connection: {
-      //   database: "pokemon-node",
-      //   host: "localhost"
-      // },
+      //connection: 'postgres://localhost/pokemon-node',
+      connection: {
+        database: "pokemon-node",
+        host: "localhost"
+      },
       migrations: {
           directory: __dirname + '/db/migrations',
         },
@@ -20,8 +20,8 @@ module.exports = {
           directory: __dirname + '/db/migrations',
         },
       seeds: {
-          directory: __dirname + '/db/seeds',
-          //directory: __dirname + '/db/seeds/production',
+          //directory: __dirname + '/db/seeds',
+          directory: __dirname + '/db/seeds/production',
         },
     },
 };
