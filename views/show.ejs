@@ -1,21 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Profile</title>
-    <style>
-      body{
-        font-family: arial;
-      }
-    </style>
-  </head>
-  <body>
-    <p><a href="/pokemon">Back</a></p>
-    <h1><%= onePokemon.pname %></h1>
-    <h3>Combat Power: <%= onePokemon.pcp %></h3>
-    <h3>In Gym: <%= onePokemon.pingym %></h3>
-    <h3>Trainer: <%= onePokemon.tname %></h3>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pokemon - Node!</title>
 
-    <h4></h4>
-  </body>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <div class="container">
+    <div class="fixed-action-btn toolbar">
+    <a class="btn-floating btn-large red pulse">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li class="waves-effect waves-light"><a href="/pokemon">Pokemón</a></li>
+      <li class="waves-effect waves-light"><a href="/trainers">Trainer</a></li>
+      <li class="waves-effect waves-light"><a href="/gym">Gym</a></li>
+    </ul>
+  </div>
+  </div>
+  <div class="container">
+    <div class="top-bar">
+      <img id="logo" src="/img/pokemon-logo.png" alt="Pokemon Logo">
+    </div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <div class="box">
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12">
+            <div class="page-title">
+              <h3><%= onePokemon.pname %></h3>
+            </div>
+            <div class="back">
+              <p><a href="/pokemon">BACK</a></p>
+            </div>
+            <br>
+            <div class="p-info">
+              <h5><%= onePokemon.pname %></h5>
+              <h6>Combat Power: <%= onePokemon.pcp %></h6>
+              <h6>In Gym: <%= onePokemon.pingym %></h6>
+              <h6>Trainer: <%= onePokemon.tname %></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer class="footer">
+<div class="container">
+<div class="by">
+&copy; 2017, Made by Rahul
+</div>
+</div>
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
 </html>

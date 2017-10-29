@@ -3,12 +3,12 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>Pokemon - Node!</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
 
@@ -26,33 +26,54 @@
   </div>
   <div class="container">
     <div class="top-bar">
-      <img id="logo" src="img/pokemon-logo.png" alt="Pokemon Logo">
+      <img id="logo" src="/img/pokemon-logo.png" alt="Pokemon Logo">
     </div>
   </div>
+  <div class="container">
+    <div class="section">
+      <div class="box">
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12">
+            <div class="page-title">
+              <h3><%= trainerProfile.name %>'s profile</h3>
+            </div>
+            <div class="back">
+              <p><a href="/trainers">BACK</a></p>
+            </div>
+            <br>
 
-    <h1>Trainer <%= trainerProfile.name %></h1>
-    <p><a href="/trainers">Back</a></p>
-    <br>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>COMBAT POWER</th>
-          <th>IN GYM</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(let i=0; i<thisTrainersPokemon.length; i++){ %>
-          <tr>
-            <td><%= thisTrainersPokemon[i].id %></td>
-            <td><%= thisTrainersPokemon[i].name %></td>
-            <td><%= thisTrainersPokemon[i].cp %></td>
-            <td><%= thisTrainersPokemon[i].in_gym %></td>
-          </tr>
-        <% } %>
-      </tbody>
-    </table>
+            <div class="trainer-pokemon">
+              <h5><%= trainerProfile.name %>'s pokemons</h5>
+              <br>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>COMBAT POWER</th>
+                    <th>IN GYM</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(let i=0; i<thisTrainersPokemon.length; i++){ %>
+                    <tr>
+                      <td><%= thisTrainersPokemon[i].id %></td>
+                      <td><%= thisTrainersPokemon[i].name %></td>
+                      <td><%= thisTrainersPokemon[i].cp %></td>
+                      <td><%= thisTrainersPokemon[i].in_gym %></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <footer class="footer">
       <div class="container">
@@ -64,8 +85,8 @@
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script src="/js/init.js"></script>
 
   </body>
   </html>

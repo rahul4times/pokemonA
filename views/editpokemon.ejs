@@ -1,42 +1,90 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Edit Pokemon</title>
-    <style>
-      body{
-        font-family: arial;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Edit <%= pokemon.name %></h1>
-    <p><a href="/pokemon">back</a></p>
-    <hr>
-    <br>
-    <form action="/editp/<%= pokemon.id %>" method="post">
-      <input type="text" name="name" value="<%= pokemon.name %>">
-      <br>
-      <br>
-      <input type="text" name="cp" value="<%= pokemon.cp %>">
-      <br>
-      <br>
-        <p>In Gym: <%= pokemon.in_gym %></p>
-      <br>
-      <label for="trainer_id">Change Trainer: </label>
-      <select name="trainer_id">
-        <option selected value="<%= pokemonTrainer.id %>">
-          <%= pokemonTrainer.name %>
-        </option>
-        <% for(let k=0; k<trainers.length; k++){ %>
-            <option value="<%= trainers[k].id %>">
-              <%= trainers[k].name %>
-            </option>
-        <% } %>
-      </select>
-      <br>
-      <br>
-      <input type="submit" value="Edit">
-    </form>
-  </body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Pokemon - Node!</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <div class="container">
+    <div class="fixed-action-btn toolbar">
+    <a class="btn-floating btn-large red pulse">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li class="waves-effect waves-light"><a href="/pokemon">Pokemón</a></li>
+      <li class="waves-effect waves-light"><a href="/trainers">Trainer</a></li>
+      <li class="waves-effect waves-light"><a href="/gym">Gym</a></li>
+    </ul>
+  </div>
+  </div>
+  <div class="container">
+    <div class="top-bar">
+      <img id="logo" src="/img/pokemon-logo.png" alt="Pokemon Logo">
+    </div>
+  </div>
+  <div class="container">
+    <div class="section">
+      <div class="box">
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12">
+            <div class="page-title">
+              <h3>Edit <%= pokemon.name %></h3>
+            </div>
+            <div class="back">
+              <p><a href="/pokemon">BACK</a></p>
+            </div>
+            <br>
+            <div class="edit-pokemon">
+              <form action="/editp/<%= pokemon.id %>" method="post">
+                <input id="epn" type="text" name="name" value="<%= pokemon.name %>">
+                <br>
+                <br>
+                <input id="ecp" type="text" name="cp" value="<%= pokemon.cp %>">
+                <br>
+                <br>
+                  <p id="gym-status">In Gym: <%= pokemon.in_gym %></p>
+                <br>
+                <label for="trainer_id">Change Trainer: </label>
+                <select class="browser-default" name="trainer_id">
+                  <option selected value="<%= pokemonTrainer.id %>">
+                    <%= pokemonTrainer.name %>
+                  </option>
+                  <% for(let k=0; k<trainers.length; k++){ %>
+                      <option value="<%= trainers[k].id %>">
+                        <%= trainers[k].name %>
+                      </option>
+                  <% } %>
+                </select>
+                <br>
+                <br>
+                <input type="submit" value="Edit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="by">
+        &copy; 2017, Made by Rahul
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
+
+</body>
 </html>

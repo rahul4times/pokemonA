@@ -120,7 +120,16 @@ a{
   padding-left: 1%;
   font-size: 14px;
 }
-#st{
+
+.p-info{
+  text-align: center;
+}
+.trainer-pokemon{
+  text-align: center;
+}
+
+
+#epn{
   width: 50%;
   height: 25px;
   border-radius: 2px;
@@ -130,9 +139,24 @@ a{
   padding-left: 1%;
   font-size: 14px;
 }
-.create-pokemon{
-  text-align: center;
+#ecp{
+  width: 50%;
+  height: 25px;
+  border-radius: 2px;
+  border: 1px solid #2f2f2f;
+  color: #000;
+  background-color: #fff;
+  padding-left: 1%;
+  font-size: 14px;
 }
+
+label{
+  color: #000;
+}
+.browser-default{
+  width: 50%;
+}
+
 @media only screen and (max-width : 992px) {
 
 }
