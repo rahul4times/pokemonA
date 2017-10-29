@@ -14,7 +14,7 @@
 
   <div class="container">
     <div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large red">
+    <a class="btn-floating btn-large red pulse">
       <i class="large material-icons">menu</i>
     </a>
     <ul>
@@ -26,11 +26,7 @@
   </div>
   <div class="container">
     <div class="top-bar">
-      <div class="row">
-        <div class="col s12 m12">
-          <img id="logo" src="img/pokemon-logo.png" alt="Pokemon Logo">
-        </div>
-      </div>
+      <img id="logo" src="img/pokemon-logo.png" alt="Pokemon Logo">
     </div>
   </div>
 
@@ -40,64 +36,70 @@
         <!--   Icon Section   -->
         <div class="row">
           <div class="col s12">
-    <h4>All Pokemons</h4>
-    <br>
-
-    <table class="centered highlight responsive-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>COMBAT POWER</th>
-          <th>IN GYM</th>
-          <th>TRAINER ID</th>
-          <th>ACTION</th>
-          <th>EDIT</th>
-          <th>DELETE</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(let i=0; i<pokemonList.length; i++){ %>
-          <tr>
-            <td><%= pokemonList[i].id %></td>
-            <td><a href="/showpage/<%= pokemonList[i].id %>">
-              <%= pokemonList[i].name %></a></td>
-            <td><%= pokemonList[i].cp %></td>
-            <td><%= pokemonList[i].in_gym %></td>
-            <td><%= pokemonList[i].trainer_id %></td>
-            <% if(!pokemonList[i].in_gym && gym.length < 2){ %>
-              <td><a href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
-            <% } else if (!pokemonList[i].in_gym){ %>
-              <td><% [i] %>Gym occupied</td>
-            <% } else { %>
-              <td><a href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
-            <% } %>
-            <td><a href="/editpokemon/<%= pokemonList[i].id %>">Edit</a></td>
-            <td><a href="/delete/<%= pokemonList[i].id %>">Delete</a></td>
-          </tr>
-        <% } %>
-      </tbody>
-    </table>
-    <br>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="by">
-          &copy; 2017, Made by Rahul
+            <div class="page-title">
+              <h3>Pokemons</h3>
+            </div>
+            <div class="gym">
+              <a href="/gym" class="waves-effect waves-light btn red">GYM</a>
+            </div>
+            <br>
+            <table class="centered highlight responsive-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>COMBAT POWER</th>
+                  <th>IN GYM</th>
+                  <th>TRAINER ID</th>
+                  <th>ACTION</th>
+                  <th>EDIT</th>
+                  <th>DELETE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let i=0; i<pokemonList.length; i++){ %>
+                  <tr>
+                    <td><%= pokemonList[i].id %></td>
+                    <td><a href="/showpage/<%= pokemonList[i].id %>">
+                      <%= pokemonList[i].name %></a></td>
+                    <td><%= pokemonList[i].cp %></td>
+                    <td><%= pokemonList[i].in_gym %></td>
+                    <td><%= pokemonList[i].trainer_id %></td>
+                    <% if(!pokemonList[i].in_gym && gym.length < 2){ %>
+                      <td><a href="/addtogym/<%= pokemonList[i].id %>">Assign to Gym</a></td>
+                    <% } else if (!pokemonList[i].in_gym){ %>
+                      <td><% [i] %>Gym occupied</td>
+                    <% } else { %>
+                      <td><a href="/removefromgym/<%= pokemonList[i].id %>">Remove from gym</a></td>
+                    <% } %>
+                    <td><a href="/editpokemon/<%= pokemonList[i].id %>">Edit</a></td>
+                    <td><a href="/delete/<%= pokemonList[i].id %>">Delete</a></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+            <br>
+            <div class="add-pokemon">
+              <a href="/newpokemon" class="waves-effect waves-light btn red">Add Pokemon</a>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </div>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="by">
+        &copy; 2017, Made by Rahul
+      </div>
+    </div>
+  </footer>
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
-    </body>
-  </html>
+</body>
+</html>

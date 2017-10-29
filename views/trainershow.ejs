@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Trainers Show</title>
-    <style>
-      body{
-        font-family: arial;
-      }
-      table, tr, td{
-        padding: 10px;
-        border: 1px solid #000;
-        border-collapse: collapse;
-      }
-      thead{
-        background-color: #f5f5f5;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+  <div class="container">
+    <div class="fixed-action-btn toolbar">
+    <a class="btn-floating btn-large red pulse">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li class="waves-effect waves-light"><a href="/pokemon">Pokemón</a></li>
+      <li class="waves-effect waves-light"><a href="/trainers">Trainer</a></li>
+      <li class="waves-effect waves-light"><a href="/gym">Gym</a></li>
+    </ul>
+  </div>
+  </div>
+  <div class="container">
+    <div class="top-bar">
+      <img id="logo" src="img/pokemon-logo.png" alt="Pokemon Logo">
+    </div>
+  </div>
+
     <h1>Trainer <%= trainerProfile.name %></h1>
     <p><a href="/trainers">Back</a></p>
     <br>
     <table>
       <thead>
         <tr>
-          <td>ID</td>
-          <td>NAME</td>
-          <td>COMBAT POWER</td>
-          <td>IN GYM</td>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>COMBAT POWER</th>
+          <th>IN GYM</th>
         </tr>
       </thead>
       <tbody>
@@ -43,10 +54,18 @@
       </tbody>
     </table>
 
+    <footer class="footer">
+      <div class="container">
+        <div class="by">
+          &copy; 2017, Made by Rahul
+        </div>
+      </div>
+    </footer>
 
-
-
-
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
 
   </body>
-</html>
+  </html>
