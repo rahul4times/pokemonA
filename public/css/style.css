@@ -25,7 +25,7 @@ thead{
   font-weight: bold;
 }
 tbody{
-  font-size: 12px;
+  font-size: 14px;
 }
 .page-title{
   text-align: center;
@@ -152,10 +152,15 @@ a{
 
 label{
   color: #000;
+  font-size: 14px;
 }
 .browser-default{
   width: 50%;
 }
+input-placeholder{
+  color: #000;
+}
+
 
 @media only screen and (max-width : 992px) {
 

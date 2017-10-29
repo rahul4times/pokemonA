@@ -48,13 +48,15 @@
               <h5 class="players">Pokemon 1</h5>
               <% for(let j=0; j<firstPlayer.length; j++){ %>
                 <% if(parseInt(players[0]) === firstPlayer[j].id){ %>
-                  <h4><%= firstPlayer[j].name; %></h4>
+                  <h6><%= firstPlayer[j].name; %></h6>
+                  <img src="http://www.pokestadium.com/sprites/xy/<%= firstPlayer[j].name.toLowerCase() %>.gif" alt="firstPlayer[j].name">
                   <% } %>
                     <% } %>
                       <form action="/selectplayerone" method="post">
-                        <select class="browser-default" name="id">
+                        <select name="id">
+                          <option disabled selected>Choose your pokemon</option>
                         <% for(let i=0; i<firstPlayer.length; i++){ %>
-                          <option value="<%= firstPlayer[i].id %>">
+                          <option data-icon="http://www.pokestadium.com/sprites/xy/<%= firstPlayer[i].name.toLowerCase() %>.gif" class="circle" value="<%= firstPlayer[i].id %>">
                             <%= firstPlayer[i].name %></option>
                         <% } %>
                         </select>
@@ -75,13 +77,15 @@
               <h5 class="players">Pokemon 2</h5>
               <% for(let k=0; k<secondPlayer.length; k++){ %>
                 <% if(parseInt(players[1]) === secondPlayer[k].id){ %>
-                  <h4><%= secondPlayer[k].name; %></h4>
+                  <h6><%= secondPlayer[k].name; %></h6>
+                  <img src="http://www.pokestadium.com/sprites/xy/<%= secondPlayer[k].name.toLowerCase() %>.gif" alt="secondPlayer[k].name">
                   <% } %>
                     <% } %>
                       <form action="/selectplayertwo" method="post">
-                        <select class="browser-default" name="id">
+                        <select name="id">
+                          <option disabled selected>Choose your pokemon</option>
                           <% for(let j=0; j<secondPlayer.length; j++){ %>
-                            <option value="<%= secondPlayer[j].id %>">
+                            <option data-icon="http://www.pokestadium.com/sprites/xy/<%= secondPlayer[j].name.toLowerCase() %>.gif" class="circle" value="<%= secondPlayer[j].id %>">
                               <%= secondPlayer[j].name %></option>
                           <% } %>
                         </select>
@@ -101,11 +105,13 @@
                   <h5 class="players">Pokemon 1</h5>
                   <% for(let j=0; j<firstPlayer.length; j++){ %>
                     <% if(parseInt(players[0]) === firstPlayer[j].id){ %>
-                      <h4><%= firstPlayer[j].name; %></h4>
+                      <h6><%= firstPlayer[j].name; %></h6>
+                      <img src="http://www.pokestadium.com/sprites/xy/<%= firstPlayer[j].name.toLowerCase() %>.gif" alt="firstPlayer[j].name">
                       <% } %>
                         <% } %>
                           <form action="/selectplayerone" method="post">
-                            <select class="browser-default" name="id">
+                            <select disabled name="id">
+                              <option disabled selected>Choose your pokemon</option>
                             <% for(let i=0; i<firstPlayer.length; i++){ %>
                               <option value="<%= firstPlayer[i].id %>">
                                 <%= firstPlayer[i].name %></option>
@@ -128,11 +134,13 @@
                   <h5 class="players">Pokemon 2</h5>
                   <% for(let k=0; k<secondPlayer.length; k++){ %>
                     <% if(parseInt(players[1]) === secondPlayer[k].id){ %>
-                      <h4><%= secondPlayer[k].name; %></h4>
+                      <h6><%= secondPlayer[k].name; %></h6>
+                      <img src="http://www.pokestadium.com/sprites/xy/<%= secondPlayer[k].name.toLowerCase() %>.gif" alt="secondPlayer[k].name">
                       <% } %>
                         <% } %>
                           <form action="/selectplayertwo" method="post">
-                            <select class="browser-default" name="id">
+                            <select disabled name="id">
+                              <option disabled selected>Choose your pokemon</option>
                             <% for(let j=0; j<secondPlayer.length; j++){ %>
                               <option value="<%= secondPlayer[j].id %>">
                                 <%= secondPlayer[j].name %></option>

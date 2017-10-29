@@ -43,27 +43,31 @@
               <p><a href="/pokemon">BACK</a></p>
             </div>
             <br>
+            <form action="/createpokemon" method="post">
+
+            <div class="col s12 m4">
+              <label for="autocomplete-input">Pokemon Name</label>
+              <input type="text" name="name" id="autocomplete-input" class="autocomplete" placeholder="Name" required>
+            </div>
+
+            <div class="col s12 m4">
+              <label for="cp">Combat Power</label>
+              <input type="text" name="cp" placeholder="Combat Power" required>
+            </div>
+
+            <div class="col s12 m4">
+              <label for="trainer_id">Select Trainer: </label>
+              <select name="trainer_id" required>
+                <% for(let i=0; i<trainerList.length; i++){ %>
+                  <option value="<%= trainerList[i].id %>">
+                    <%= trainerList[i].name %></option>
+                <% } %>
+              </select>
+            </div>
             <div class="create-pokemon">
-              <form action="/createpokemon" method="post">
-                <input id="pn" type="text" name="name" placeholder="Name" required>
-                <br>
-                <br>
-                <input id="pcp" type="text" name="cp" placeholder="Combat Power" required>
-                <br>
-                <br>
-                <label for="trainer_id">Select Trainer: </label>
-                <select class="browser-default" name="trainer_id" required>
-                  <% for(let i=0; i<trainerList.length; i++){ %>
-                    <option value="<%= trainerList[i].id %>">
-                      <%= trainerList[i].name %></option>
-                  <% } %>
-                </select>
-                <br>
-                <br>
                 <input type="submit" value="Create">
               </form>
             </div>
-
           </div>
         </div>
       </div>

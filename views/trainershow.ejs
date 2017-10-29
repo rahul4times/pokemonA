@@ -50,18 +50,20 @@
                 <thead>
                   <tr>
                     <th>ID</th>
+                    <th>PIC</th>
                     <th>NAME</th>
                     <th>COMBAT POWER</th>
-                    <th>IN GYM</th>
+
                   </tr>
                 </thead>
                 <tbody>
                   <% for(let i=0; i<thisTrainersPokemon.length; i++){ %>
                     <tr>
                       <td><%= thisTrainersPokemon[i].id %></td>
+                      <td><img src="http://www.pokestadium.com/sprites/xy/<%= thisTrainersPokemon[i].name.toLowerCase() %>.gif" alt="<%= thisTrainersPokemon[i].name %>"></td>
                       <td><%= thisTrainersPokemon[i].name %></td>
                       <td><%= thisTrainersPokemon[i].cp %></td>
-                      <td><%= thisTrainersPokemon[i].in_gym %></td>
+
                     </tr>
                   <% } %>
                 </tbody>

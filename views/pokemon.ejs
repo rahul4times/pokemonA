@@ -47,6 +47,7 @@
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>PIC</th>
                   <th>NAME</th>
                   <th>COMBAT POWER</th>
                   <th>IN GYM</th>
@@ -60,6 +61,8 @@
                 <% for(let i=0; i<pokemonList.length; i++){ %>
                   <tr>
                     <td><%= pokemonList[i].id %></td>
+                    <td><img src="http://www.pokestadium.com/sprites/xy/<%= pokemonList[i].name.toLowerCase() %>.gif"
+                      alt="<%= pokemonList[i].name %>"></td>
                     <td><a href="/showpage/<%= pokemonList[i].id %>">
                       <%= pokemonList[i].name %></a></td>
                     <td><%= pokemonList[i].cp %></td>

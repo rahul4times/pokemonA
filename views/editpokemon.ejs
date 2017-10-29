@@ -42,31 +42,32 @@
               <p><a href="/pokemon">BACK</a></p>
             </div>
             <br>
+            <form action="/editp/<%= pokemon.id %>" method="post">
+            <div class="col s12 m4">
+              <label for="name">Pokemon Name</label>
+              <input type="text" name="name" value="<%= pokemon.name %>" id="autocomplete-input" class="autocomplete" placeholder="Name" required>
+            </div>
+            <div class="col s12 m4">
+              <label for="cp">Combat Power</label>
+              <input type="text" name="cp" value="<%= pokemon.cp %>">
+            </div>
+            <div class="col s12 m4">
+              <label for="trainer_id">Change Trainer: </label>
+              <select name="trainer_id">
+                <option selected value="<%= pokemonTrainer.id %>">
+                  <%= pokemonTrainer.name %>
+                </option>
+                <% for(let k=0; k<trainers.length; k++){ %>
+                    <option value="<%= trainers[k].id %>">
+                      <%= trainers[k].name %>
+                    </option>
+                <% } %>
+              </select>
+            </div>
             <div class="edit-pokemon">
-              <form action="/editp/<%= pokemon.id %>" method="post">
-                <input id="epn" type="text" name="name" value="<%= pokemon.name %>">
-                <br>
-                <br>
-                <input id="ecp" type="text" name="cp" value="<%= pokemon.cp %>">
-                <br>
-                <br>
-                  <p id="gym-status">In Gym: <%= pokemon.in_gym %></p>
-                <br>
-                <label for="trainer_id">Change Trainer: </label>
-                <select class="browser-default" name="trainer_id">
-                  <option selected value="<%= pokemonTrainer.id %>">
-                    <%= pokemonTrainer.name %>
-                  </option>
-                  <% for(let k=0; k<trainers.length; k++){ %>
-                      <option value="<%= trainers[k].id %>">
-                        <%= trainers[k].name %>
-                      </option>
-                  <% } %>
-                </select>
-                <br>
-                <br>
-                <input type="submit" value="Edit">
-              </form>
+              <br>
+              <input type="submit" value="Edit">
+            </form>
             </div>
           </div>
         </div>
